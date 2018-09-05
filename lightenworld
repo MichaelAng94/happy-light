@@ -1,0 +1,67 @@
+package com.fh.lightenworld;
+
+
+import android.content.Intent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.Button;
+
+public class MainActivity extends AppCompatActivity implements OnClickListener {
+    Button exitbtn;
+    Button ownerinformbtn;
+    Button residentalbtn;
+    Button paymentbtn;
+    Button parkingbtn;
+    Button complaintbtn;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        exitbtn = (Button) findViewById(R.id.exitbtn);
+        ownerinformbtn=(Button)findViewById(R.id.ownerinformbtn);
+        residentalbtn=(Button)findViewById(R.id.residentalbtn);
+        parkingbtn=(Button)findViewById(R.id.parkingbtn);
+        paymentbtn=(Button)findViewById(R.id.paymentbtn);
+        complaintbtn=(Button)findViewById(R.id.complaintbtn);
+
+        exitbtn.setOnClickListener(this);
+        ownerinformbtn.setOnClickListener(this);
+        residentalbtn.setOnClickListener(this);
+        parkingbtn.setOnClickListener(this);
+        paymentbtn.setOnClickListener(this);
+        complaintbtn.setOnClickListener(this);
+    }
+
+    public void onClick(View v) {//按钮监听事件
+        int id=v.getId();
+        switch (id){
+            case R.id.exitbtn:
+                Intent relogin=new Intent(MainActivity.this,LoginActivity.class);
+                startActivity(relogin);
+                break;
+            case R.id.ownerinformbtn:
+                Intent owner=new Intent(MainActivity.this,OwnerActivity.class);
+                startActivity(owner);
+                break;
+            case R.id.residentalbtn:
+                Intent residental=new Intent(MainActivity.this,ResidentalActivity.class);
+                startActivity(residental);
+                break;
+            case R.id.parkingbtn:
+                Intent parking=new Intent(MainActivity.this,ParkingActiviy.class);
+                startActivity(parking);
+                break;
+            case R.id.paymentbtn:
+                Intent payment=new Intent(MainActivity.this,PaymentActivity.class);
+                startActivity(payment);
+                break;
+            case R.id.complaintbtn:
+                Intent complaint=new Intent(MainActivity.this,ComplaintActivity.class);
+                startActivity(complaint);
+                break;
+        }
+    }
+}
